@@ -1,6 +1,8 @@
 pipeline {
     // Run this pipeline on any available Jenkins executor/agent
-    agent any 
+    agent { 
+    	label 'personal'
+	}
 
     stages {
         stage('Build') {
