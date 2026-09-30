@@ -1,0 +1,38 @@
+pipeline {
+    // Run this pipeline on any available Jenkins executor/agent
+    agent any 
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+                // Run a shell command (use 'bat' instead of 'sh' if on Windows)
+                sh 'echo "Compile code or run build tools here"' 
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Running automated tests...'
+                sh 'echo "Execute your unit tests here"'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                sh 'echo "Deploying to server..."'
+            }
+        }
+    }
+
+    // Optional: Actions to take depending on how the pipeline finishes
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check the logs!'
+        }
+    }
+}
